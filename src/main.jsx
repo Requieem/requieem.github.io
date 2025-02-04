@@ -5,6 +5,6 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App className={"v-full background-primary"}/>
+    <App className={"h-full background-primary"}/>
   </StrictMode>,
 )

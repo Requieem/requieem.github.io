@@ -8,8 +8,8 @@ import LogoLink from "./LogoLink.jsx";
 
 function Footer() {
     return (
-        <footer className={"w-full sticky bottom-5\n"}>
-            <div className={"flex items-center text-platinum dark:bg-oxford-blue/35 bg-yinmn-blue/35 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg border border-rich-black dark:border-yinmn-blue m-5 p-5"}>
+        <footer className={"w-full absolute bottom-0"}>
+            <div className={"flex items-center rounded-md bg-clip-padding backdrop-filter backdrop-blur-md border border-rich-black dark:border-yinmn-blue m-5 p-5 h-20"}>
                 <LogoLink url="https://www.linkedin.com/in/marco-farace/" image={linkedinLogo} classes={"logo linkedin"} alt="Linkedin Logo"/>
                 <LogoLink url="https://requieem.itch.io/" image={itchLogo} classes={"logo itch"} alt="Itch.io Logo"/>
                 <LogoLink url="https://github.com/Requieem" image={githubLogo} classes={"logo github"} alt="Github Logo"/>
