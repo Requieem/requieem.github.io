@@ -5,6 +5,11 @@ body, root, :root, #root, html {
   @apply dark:bg-rich-black bg-platinum;
   height: 100vh;
   overflow: clip;
+  cursor: none;
+}
+
+* {
+  cursor: none !important;
 }
 
 text, span {
@@ -23,6 +28,17 @@ text, span {
 
 .background {
   background-image: url("BG.jpg");
+}
+
+/*media query equal to tailwind's sm*/
+@media (max-width: 765px) {
+  .about-image:hover ~ div .scroll-button {
+    transform: translateY(0.2em);
+  }
+}
+
+.about-image {
+  transition: all 0.2s ease;
 }
 
 .logo {
