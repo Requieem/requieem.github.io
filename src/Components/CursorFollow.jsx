@@ -14,22 +14,37 @@ function CursorFollower() {
         const swapCursor = () => {
             const sun = document.querySelector(".sun");
             const moon = document.querySelector(".moon");
+            const cursor = document.querySelector(".cursor-div");
 
             if (localStorage.currentTheme === "dark") {
                 sun.style.display = "none";
                 moon.style.display = "block";
+                cursor.className = cursor.className.replace(" cursor-shadow", "");
+                cursor.className += " cursor-shadow-dark";
+                console.log(cursor.className);
             }
 
             if (localStorage.currentTheme === "light") {
                 sun.style.display = "block";
                 moon.style.display = "none";
+                cursor.className = cursor.className.replace(" cursor-shadow-dark", "");
+                cursor.className = cursor.className.replace(" backdrop-blur-xs", "");
+                cursor.className += " cursor-shadow";
+                cursor.className += " backdrop-blur-sm";
+                console.log(cursor.className);
             }
         }
 
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("themeChange", swapCursor);
         swapCursor();
-        return () => window.removeEventListener("mousemove", handleMouseMove);
+        const cursor = document.querySelector(".cursor-div");
+        cursor.className = cursor.className.replace(" backdrop-blur-xs", "");
+        cursor.className += " backdrop-blur-xs";
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("themeChange", swapCursor);
+        }
     }, []);
 
     return (
@@ -47,7 +62,7 @@ function CursorFollower() {
                 transition: "transform 0.05s linear", // Smooth movement
             }}
 
-            className={"bg-silver-lake-blue/25 dark:bg-yellow-200/15 flex-col bg-clip-padding bg-radial items-center justify-center flex backdrop-filter backdrop-blur-xs "}
+            className={"cursor-div bg-silver-lake-blue/25 dark:bg-yellow-200/15 flex-col bg-clip-padding bg-radial items-center justify-center flex backdrop-filter backdrop-blur-xs"}
         >
             <FaSun className={"w-10 h-10 fill-yinmn-blue sun pointer-events-none"}/>
             <FaMoon className={"w-10 h-10 fill-yellow-200 moon pointer-events-none z-10"}/>

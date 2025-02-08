@@ -12,6 +12,10 @@ body, root, :root, #root, html {
   cursor: none !important;
 }
 
+.theme-transition {
+   transition: all 500ms ease-in-out;
+ }
+
 text, span {
   @apply text-platinum;
 }
@@ -26,6 +30,14 @@ text, span {
   transition: all 0.25s ease;
 }
 
+.cursor-shadow {
+  box-shadow: 0 10px 50px -12px var(--color-oxford-blue);
+}
+
+.cursor-shadow-dark{
+  box-shadow: 0 10px 50px -12px var(--color-amber-300);
+}
+
 .background {
   background-image: url("BG.jpg");
 }
@@ -33,12 +45,21 @@ text, span {
 /*media query equal to tailwind's sm*/
 @media (max-width: 765px) {
   .about-image:hover ~ div .scroll-button {
-    transform: translateY(0.2em);
+    transform: translateY(0.3em);
   }
 }
 
 .about-image {
   transition: all 0.2s ease;
+}
+
+.scroll-container{
+  scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .logo {
