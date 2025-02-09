@@ -64,9 +64,9 @@ function Landing({buttonClick}) {
                 <div
                     className={"row-end-1 row-start-1 col-start-1 col-end-1 flex flex-col items-center justify-center z-10"}>
                     <button onClick={buttonClick}
-                        className={"pointer-events-auto z-20 hover:scale-250 scale-200 p-1 border-1 rounded-full ease-in-out duration-200 absolute dark:bg-yinmn-blue bg-amber-300 -bottom-2 md:-bottom-20 scroll-button fill-yinmn-blue dark:fill-amber-300"}>
+                        className={"border-yinmn-blue dark:border-platinum pointer-events-auto z-20 hover:scale-250 scale-200 p-1 border-1 rounded-full ease-in-out duration-200 absolute dark:bg-yinmn-blue bg-amber-300 -bottom-2 md:-bottom-20 scroll-button fill-yinmn-blue dark:fill-amber-300"}>
                         <FaArrowCircleDown
-                            className={"hover:scale-120 duration-400 ease-in-out hover:shadow-2xl shadow-black"}/>
+                            className={"hover:scale-120 duration-400 ease-in-out hover:shadow-2xl shadow-black fill-yinmn-blue dark:fill-platinum"}/>
                     </button>
                 </div>
             </div>
