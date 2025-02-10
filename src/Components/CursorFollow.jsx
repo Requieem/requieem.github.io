@@ -53,8 +53,8 @@ function CursorFollower() {
                 position: "fixed",
                 top: position.y,
                 left: position.x,
-                width: "70px",
-                height: "70px",
+                width: "35px",
+                height: "35px",
                 borderRadius: "50%",
                 pointerEvents: "none", // Prevents blocking interactions
                 transform: "translate(-50%, -50%)", // Center the circle on the cursor
@@ -64,8 +64,8 @@ function CursorFollower() {
 
             className={"cursor-div bg-silver-lake-blue/25 dark:bg-yellow-200/15 flex-col bg-clip-padding bg-radial items-center justify-center flex backdrop-filter backdrop-blur-xs"}
         >
-            <FaSun className={"w-10 h-10 fill-yinmn-blue sun pointer-events-none"}/>
-            <FaMoon className={"w-10 h-10 fill-yellow-200 moon pointer-events-none z-10"}/>
+            <FaSun className={"w-5 h-5 fill-yinmn-blue sun pointer-events-none"}/>
+            <FaMoon className={"w-5 h-5 fill-yellow-200 moon pointer-events-none z-10"}/>
         </div>
     );
 }
