@@ -9,7 +9,7 @@ import BrightnessToggle from "./BrightnessToggle.jsx";
 
 function Footer() {
     return (
-        <footer className={"w-full sticky bottom-5 dark:text-platinum"}>
+        <footer className={"w-full h-20 sticky bottom-5 dark:text-platinum"}>
             <div className={"flex items-center rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm border dark:bg-amber-300/5 dark:border-amber-300 border-yinmn-blue bg-yinmn-blue/25 m-5 p-5 h-20 theme-transition"}>
                 <LogoLink url="https://www.linkedin.com/in/marco-farace/" image={linkedinLogo} classes={"logo linkedin"} alt="Linkedin Logo"/>
                 <LogoLink url="https://requieem.itch.io/" image={itchLogo} classes={"logo itch"} alt="Itch.io Logo"/>

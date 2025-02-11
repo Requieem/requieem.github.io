@@ -14,11 +14,16 @@ function App() {
 
         const container = document.querySelector(".scroll-container"); // Target your scrolling div
         if (container) {
-            page++;
             const pages = document.querySelector(".pages");
             const maxPage = pages.children.length;
+            const currentPage = pages.children[page];
+            page++;
             page = Math.min(page, maxPage - 1);
-            const scrollTarget = container.clientHeight * page;
+            let totalHeight = 0;
+            for (let i = 0; i < page; i++) {
+                totalHeight += pages.children[i].clientHeight
+            }
+            const scrollTarget = totalHeight;
             // scroll a full page height
             container.scrollTo({
                 top: scrollTarget,
@@ -32,11 +37,15 @@ function App() {
 
         const container = document.querySelector(".scroll-container"); // Target your scrolling div
         if (container) {
-            page--;
             const pages = document.querySelector(".pages");
-            const maxPage = pages.children.length;
+            const currentPage = pages.children[page];
+            page--;
             page = Math.max(page, 0);
-            const scrollTarget = container.clientHeight * page;
+            let totalHeight = 0;
+            for (let i = 0; i < page; i++) {
+                totalHeight += pages.children[i].clientHeight
+            }
+            const scrollTarget = totalHeight;
             // scroll a full page height
             container.scrollTo({
                 top: scrollTarget,
