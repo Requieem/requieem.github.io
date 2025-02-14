@@ -1,7 +1,6 @@
 import {Component, useRef, useState} from "react";
 import {FaArrowCircleDown}           from "react-icons/fa";
 import PropTypes from "prop-types";
-import Carousel from "./Carousel.jsx";
 import CarouselAlternative from "./CarouselAlternative.jsx";
 import unity6 from "/Unity6.png";
 import caveMesh from "/cave_mesh.png";
