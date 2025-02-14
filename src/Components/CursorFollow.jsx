@@ -62,7 +62,8 @@ function CursorFollower() {
                 transition: "transform 0.05s linear", // Smooth movement
             }}
 
-            className={"cursor-div bg-silver-lake-blue/25 dark:bg-yellow-200/15 flex-col bg-clip-padding bg-radial items-center justify-center flex backdrop-filter backdrop-blur-xs"}
+            className={"hidden sm:flex cursor-div bg-silver-lake-blue/25"
+                       + " dark:bg-yellow-200/15 flex-col bg-clip-padding bg-radial items-center justify-center flex backdrop-filter backdrop-blur-xs"}
         >
             <FaSun className={"w-5 h-5 fill-yinmn-blue sun pointer-events-none"}/>
             <FaMoon className={"w-5 h-5 fill-yellow-200 moon pointer-events-none z-10"}/>

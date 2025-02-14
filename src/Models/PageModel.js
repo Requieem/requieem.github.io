@@ -1,4 +1,8 @@
 class PageModel {
+    /** @type {string} */
+    title;
+    /** @type {string} */
+    description;
     /** @type {string[]} */
     images;
     /** @type {{text: string, language: string}[]} */
@@ -6,7 +10,9 @@ class PageModel {
     /** @type {string[]} */
     docs;
 
-    constructor(images = /** @type {string[]} */ [], codeBlocks = /** @type {{text: string, language: string}[]} */ [], docs = /** @type {string[]} */ []) {
+    constructor(title = /** string */ "", description = /** string */ "", images = /** @type {string[]} */ [], codeBlocks = /** @type {{text: string, language: string}[]} */ [], docs = /** @type {string[]} */ []) {
+        this.title = title;
+        this.description = description;
         this.images = images;
         this.codeBlocks = codeBlocks;
         this.docs = docs;

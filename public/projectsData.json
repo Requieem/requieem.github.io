@@ -1,0 +1,21 @@
+[
+  {
+	"title" : "Res Cavernas",
+	"description" : "In Res Cavernas, players travel through infinite procedurally generated caves to defeat hordes of enemies and\ngather treasures. To do this, they are equipped with spells generated based on their requests through a unique\nGPT generation pipeline. The project aims to showcase an efficient and streamlined approach to these two\nmajor themes, namely Procedural Generation and LLM applications in game development. The project also\naims to provide a fluid narrative development, as the social interactions and faction reputations in the game are\nall GPT-Driven. The game challenges the player with exploring and cleansing the caves through a strategical\nexploration system that relies on a grid-based, you-move-they-move approach. As players move through the\ngenerated chambers they will also face hordes of enemies equipped with A* based path-finding and various\nabilities. Finally, a hub provides a haven where players can talk with relevant NPCs, generate new spells and\nstash their treasures.",
+	"images" : ["/ResCavernas/title_page.png", "/ResCavernas/meshoptimized.png"],
+	"codeBlocks" : [
+	  {
+		"text" : "",
+		"language": ""
+	  },
+	  {
+		"text" : "public class CaveGenerator()\n{\n    private void GenerateCave()\n    {\n        // Remove previously generate nodes from the grid\n        m_walkableGrid.Nodes.ExceptWith(m_caveGrid);\n        ClearCave(); // Clear all generated data collections\n        GenerateNormalizedNoise(); // PASS 0 (Compute Shader Dispatch):\n        GreedyTriangleGeneration(); // PASS 1 (Compute Shader Dispatch)\n        TriangleMeshing(); // PASS 2 (Engine side Allocations)\n        ReleaseBuffers(); // Release used resources\n        if (!m_collider)\n        {\n            m_collider = gameObject.AddComponent<BoxCollider>();\n            m_collider.isTrigger = true;\n        }\n        // Join the new grid nodes with the shared grid structure\n        m_walkableGrid.Nodes.AddRange(m_caveGrid);\n        // Allocate the mask used to record user interactions\n        EnsureChangesMaskExists();\n    }\n}",
+		"language": "csharp"
+	  }
+	],
+	"docs" : [
+	  "The gameplay allows the player to move through a 3D grid, each move triggering a ”tick” in other entities; these entities usually respond to this tick by moving or executing an action. The objective was to create a strategic experience, encouraging players to plan ahead of the challenges around them. Casting spells, interacting with the environment, and triggering other actions also trigger the same ticking event, effectively implementing the proposed you-move-they-move mechanic. Explore the following sections to find out how this was achieved. Finally, dying or ”recalling” brings the player back to the hub, where they can reconcile with NPCs and stash their treasures, adding a rogue-like flavour to the gameplay loop.",
+	  "Procedural generation techniques are leveraged to generate the caves where the game takes place. Thanks to\nthe extensive use of Compute Shaders, cave generation happens efficiently at runtime, allowing for a seamless\nexploration of the generated world. Additionally, the generated world can also be interacted with in various\nways.\n• 3D Grid-based exploration of the generated caves\n• Enemies explore and chase the player thanks to A* path-finding\n• Various actions can target and affect specific areas of the generated environment\n• Placement and Removal of individual cave blocks\n• With the help of a simple game-mode tool, portions of the generated caves can be tailored to suit specific\ndesign needs (eg. the Hub). the CaveManager Monobehaviour generates single chunks on demand, utilizing a queue-based system to manage and execute sequences of chunk generation incrementally over multiple frames. This design\nproved to be particularly effective for managing the generation tasks that, when batched, could potentially compromise the application’s main loop execution time."
+	]
+  }
+]

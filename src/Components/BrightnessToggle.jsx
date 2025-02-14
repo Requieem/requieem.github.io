@@ -14,13 +14,13 @@ class BrightnessToggle extends Component {
         );
 
         // set the toggle value to the current theme
-        document.querySelector(".theme-box").value = localStorage.currentTheme === "dark";
+        document.querySelector(".theme-box").value = localStorage.currentTheme === "dark" ? "true" : "false";
         document.querySelector(".theme-box").checked = localStorage.currentTheme === "dark";
         document.querySelector(".theme-label").innerText = localStorage.currentTheme;
     }
 
     toggleTheme(event) {
-        document.querySelector(".theme-box").value = localStorage.currentTheme === "dark";
+        document.querySelector(".theme-box").value = localStorage.currentTheme === "dark" ? "true" : "false";
         const currentTheme = localStorage.currentTheme || "light";
         const newTheme = currentTheme === "light" ? "dark" : "light";
         const themeBox = document.querySelector(".theme-box");

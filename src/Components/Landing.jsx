@@ -2,7 +2,7 @@ import {Component, useRef} from "react";
 import {FaArrowCircleDown} from "react-icons/fa";
 import PropTypes from "prop-types";
 
-function Landing({buttonClick}) {
+function Landing({canScrollRef, buttonClick}) {
     const imageRef = useRef(null);
     let animationFrameId = null;
 
@@ -44,7 +44,7 @@ function Landing({buttonClick}) {
         return (
             <><div
             className={"-z-0 flex-1 h-auto flex p-5 flex-col m-5 mt-0 rounded-md items-center align-middle overflow-clip"}>
-            <p className={"text-justify p-5 pt-0 mb-20 md:mb-5"}>
+            <p className={"text-justify p-5 pt-0 mb-5"}>
                 From crafting procedurally generated worlds to tackling full-stack mobile development, I turn
                 ideas into polished, playable experiences.
                 Whether it's C# in Unity, C++ in Unreal, or some chaotic game jam magic, I love pushing
