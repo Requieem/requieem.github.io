@@ -9,6 +9,7 @@ import Page from "./Components/Page.jsx";
 import axios from "axios";
 import PageModel from "./Models/PageModel.js";
 import {projectsData} from "./ProjectsData/projectsData.js";
+import TableOfContents from "./Components/TableOfContents.jsx";
 
 function App() {
     let page = 0;
@@ -82,6 +83,9 @@ function App() {
                     {/* Pages, from jsonData array */}
                     <div className={"h-full"}>
                         <Landing canScrollRef={canScroll} buttonClick={nextPage}/>
+                    </div>
+                    <div className={"h-full"}>
+                        <TableOfContents/>
                     </div>
                     {jsonData !== null && jsonData.map((data, index) => (
                         <div className={"h-full"} key={`page_${index}_${uuidv4()}`}>

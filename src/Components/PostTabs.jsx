@@ -6,7 +6,7 @@ import {atomOneDark, CodeBlock} from "react-code-blocks";
 import PageModel from "../Models/PageModel.js";
 import { v4 as uuidv4 } from 'uuid';
 
-function CarouselAlternative({canScrollRef, model}) {
+function PostTabs({canScrollRef, model}) {
     let [index, setIndex] = useState(0);
     let [previousIndex, setPreviousIndex] = useState(0);
     let [docsOpen, setDocsOpen] = useState(false);
@@ -316,8 +316,8 @@ function CarouselAlternative({canScrollRef, model}) {
 );
 }
 
-CarouselAlternative.propTypes = {
+PostTabs.propTypes = {
     model: PropTypes.instanceOf(PageModel),
 }
 
-export default CarouselAlternative;
+export default PostTabs;

@@ -1,76 +1,14 @@
 import {Component, useRef, useState} from "react";
 import {FaArrowCircleDown}           from "react-icons/fa";
 import PropTypes from "prop-types";
-import CarouselAlternative from "./CarouselAlternative.jsx";
-import unity6 from "/Unity6.png";
+import PostTabs  from "./PostTabs.jsx";
+import unity6    from "/Unity6.png";
 import caveMesh from "/cave_mesh.png";
 import PageModel      from "../Models/PageModel.js";
 import {FaX, FaXmark} from "react-icons/fa6";
 
 function Page({canScrollRef, model}) {
     let [showCarousel, setShowCarousel] = useState(false);
-
-    let dummyModel = new PageModel(`Title - Page ${Math.random()}`, [caveMesh, caveMesh], [
-        {
-            text: "    const handleMouseLeave = () => {\n" +
-                "        animationFrameId = requestAnimationFrame(() => {\n" +
-                "            if (imageRef.current) {\n" +
-                "                imageRef.current.style.transform = \"none\";\n" +
-                "                imageRef.current.style.perspective = \"none\";\n" +
-                "                imageRef.current.style.rotateX = \"none\";\n" +
-                "                imageRef.current.style.rotateY = \"none\";\n" +
-                "            }\n" +
-                "        });\n" +
-                "    };",
-            language: "javascript"
-        },
-        {
-            text: "    const handleMouseLeave = () => {\n" +
-                "        animationFrameId = requestAnimationFrame(() => {\n" +
-                "            if (imageRef.current) {\n" +
-                "                imageRef.current.style.transform = \"none\";\n" +
-                "                imageRef.current.style.perspective = \"none\";\n" +
-                "                imageRef.current.style.rotateX = \"none\";\n" +
-                "                imageRef.current.style.rotateY = \"none\";\n" +
-                "            }\n" +
-                "        });\n" +
-                "    };" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "",
-            language: "javascript"
-        },
-        {
-            text: "    const handleMouseLeave = () => {\n" +
-                "        animationFrameId = requestAnimationFrame(() => {\n" +
-                "            if (imageRef.current) {\n" +
-                "                imageRef.current.style.transform = \"none\";\n" +
-                "                imageRef.current.style.perspective = \"none\";\n" +
-                "                imageRef.current.style.rotateX = \"none\";\n" +
-                "                imageRef.current.style.rotateY = \"none\";\n" +
-                "            }\n" +
-                "        });\n" +
-                "    };" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "" +
-                "",
-            language: "javascript"
-        },],
-        ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
-    );
-
-    console.log(model);
 
         return (
             <><div
@@ -92,7 +30,7 @@ function Page({canScrollRef, model}) {
                     </p>
                 </div>
                 <div className={"flex-2 shrink hidden md:block"} style={{display: showCarousel ? "block" : null}}>
-                    <CarouselAlternative canScrollRef={canScrollRef} model={model}/>
+                    <PostTabs canScrollRef={canScrollRef} model={model}/>
                 </div>
                 <div className={"relative flex-2 w-full h-full flex-col flex"
                                 + " items-center"
