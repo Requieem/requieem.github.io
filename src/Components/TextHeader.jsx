@@ -10,7 +10,7 @@ import React from 'react';
 function TextHeader(props) {
     return (
         <div className={"flex flex-col w-full"}>
-            <h4 className={"text-lg text-center"} style={{
+            <h4 className={"text-md text-center font-semibold"} style={{
                 textAlign: props.align ? props.align : "center",
             }}>{props.title}</h4>
         </div>
