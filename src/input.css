@@ -121,7 +121,7 @@ text, span {
   --color-fill-dark: #778da9;
   --color-text-light: #e0e1dd;
   --color-text-dark: #292929;
-  --color-gradient-dark: linear-gradient(45deg, var(--color-fill-darker) 0%, var(--color-fill-darkest) 100%);
+  --color-gradient-dark: linear-gradient(45deg, #415a77 0%, #1b263b 100%);
 }
 
 @font-face {
