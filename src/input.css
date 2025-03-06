@@ -2,59 +2,59 @@
 @import "tailwindcss";
 
 body, root, :root, #root, html {
-  @apply dark:bg-rich-black bg-platinum;
-  height: 100vh;
-  overflow: clip;
-  cursor: none;
+    @apply dark:bg-rich-black bg-platinum;
+    height: 100vh;
+    overflow: clip;
+    cursor: none;
 }
 
 * {
-  cursor: none !important;
+    cursor: none !important;
 }
 
 .theme-transition {
-   transition: all 500ms ease-in-out;
- }
+    transition: all 500ms ease-in-out;
+}
 
 text, span {
-  @apply dark:text-text-light text-text-dark;
+    @apply dark:text-text-light text-text-dark;
 }
 
 .oufofsight {
-  @apply absolute relative left-full;
-  transition: all 0.25s ease;
+    @apply absolute relative left-full;
+    transition: all 0.25s ease;
 }
 
 .insight {
-  position: relative;
-  transition: all 0.25s ease;
+    position: relative;
+    transition: all 0.25s ease;
 }
 
 .cursor-shadow {
-  box-shadow: 0px 5px 25px 3px var(--color-oxford-blue);
+    box-shadow: 0px 5px 25px 3px var(--color-oxford-blue);
 }
 
-.cursor-shadow-dark{
-  box-shadow: 0px 10px 60px 1px var(--color-amber-300);
+.cursor-shadow-dark {
+    box-shadow: 0px 10px 60px 1px var(--color-amber-300);
 }
 
 .background {
-  background-image: url("BG.jpg");
+    background-image: url("BG.jpg");
 }
 
 /*media query equal to tailwind's sm*/
 @media (max-width: 765px) {
-  .about-image:hover ~ div .scroll-button {
-    transform: translateY(0.3em);
-  }
+    .about-image:hover ~ div .scroll-button {
+        transform: translateY(0.3em);
+    }
 }
 
 .about-image {
-  transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-.scroll-container{
-  scrollbar-width: none;
+.scroll-container {
+    scrollbar-width: none;
     -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
@@ -63,72 +63,84 @@ text, span {
 }
 
 .logo {
-  height: 2em;
-  margin: 0em 0.25em 0em 0.25em;
-  will-change: filter;
-  transition: filter 300ms;
-  transition: all .25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border-radius: 0.15em;
+    height: 2em;
+    margin: 0em 0.25em 0em 0.25em;
+    will-change: filter;
+    transition: filter 300ms;
+    transition: all .25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 0.15em;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.itch:hover {
-  filter: drop-shadow(0 0 2em #fa5c5c);
+    filter: drop-shadow(0 0 2em #fa5c5c);
 }
+
 .logo.linkedin:hover {
-  filter: drop-shadow(0 0 2em #0072b1);
+    filter: drop-shadow(0 0 2em #0072b1);
 }
+
 .logo.github:hover {
-  filter: drop-shadow(0 0 2em #6e5494);
+    filter: drop-shadow(0 0 2em #6e5494);
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-scale {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.5);
-  }
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .logo:hover {
-    animation: logo-scale .15s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transition: all .15s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform: scale(1.5);
-    margin: 0em 0.5em 0em 0.5em;
-  }
+    .logo:hover {
+        animation: logo-scale .15s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: all .15s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform: scale(1.5);
+        margin: 0em 0.5em 0em 0.5em;
+    }
 }
 
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+.sidebar-item-selected {
+    -webkit-backdrop-filter: blur(4px) brightness(100%);
+    backdrop-filter: blur(4px) brightness(100%);
+    background-color: #00000003;
+    box-shadow: inset 0px 10px 15px -12px #08101a80, inset 0px -10px 15px -12px #08101a80, 0px 0px 15px #778da980;
+}
+
 @theme {
-  /* CSS HEX */
-  --font-display: "Montserrat", "sans-serif";
-  --color-rich-black: #08101a;
-  --color-oxford-blue: #1b263bff;
-  --color-yinmn-blue: #415a77ff;
-  --color-silver-lake-blue: #778da9ff;
-  --color-platinum: #e0e1ddff;
-  --color-background-dark: #08101a;
-  --color-fill-darkest: #1b263b;
-  --color-fill-darker: #415a77;
-  --color-fill-dark: #778da9;
-  --color-text-light: #e0e1dd;
-  --color-text-dark: #292929;
-  --color-gradient-dark: linear-gradient(45deg, #415a77 0%, #1b263b 100%);
+    /* CSS HEX */
+    --font-display: "Montserrat", "sans-serif";
+    --color-rich-black: #08101a;
+    --color-oxford-blue: #1b263bff;
+    --color-yinmn-blue: #415a77ff;
+    --color-silver-lake-blue: #778da9ff;
+    --color-platinum: #e0e1ddff;
+    --color-background-dark: #08101a;
+    --color-fill-darkest: #1b263b;
+    --color-fill-darker: #415a77;
+    --color-fill-dark: #778da9;
+    --color-text-light: #e0e1dd;
+    --color-text-dark: #292929;
+    --color-gradient-dark: linear-gradient(135deg, #415a77 0%, #1b263b 100%);
+    --color-gradient-light: linear-gradient(135deg, #ffe082 0%, #dda506 100%);
 }
 
 @font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src:
-    url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap")
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap")
 }
