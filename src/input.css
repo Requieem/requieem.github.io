@@ -17,7 +17,7 @@ body, root, :root, #root, html {
  }
 
 text, span {
-  @apply text-platinum;
+  @apply dark:text-text-light text-text-dark;
 }
 
 .oufofsight {
@@ -115,6 +115,13 @@ text, span {
   --color-yinmn-blue: #415a77ff;
   --color-silver-lake-blue: #778da9ff;
   --color-platinum: #e0e1ddff;
+  --color-background-dark: #08101a;
+  --color-fill-darkest: #1b263b;
+  --color-fill-darker: #415a77;
+  --color-fill-dark: #778da9;
+  --color-text-light: #e0e1dd;
+  --color-text-dark: #292929;
+  --color-gradient-dark: linear-gradient(45deg, var(--color-fill-darker) 0%, var(--color-fill-darkest) 100%);
 }
 
 @font-face {
