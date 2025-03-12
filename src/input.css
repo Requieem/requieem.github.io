@@ -9,7 +9,7 @@ body, root, :root, #root, html {
 }
 
 * {
-    cursor: none !important;
+    cursor: grab !important;
 }
 
 .theme-transition {
