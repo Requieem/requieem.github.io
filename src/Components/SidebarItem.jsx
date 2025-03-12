@@ -13,7 +13,7 @@ function SidebarItem (props) {
   return (
     <button
       onClick={props.onClick}
-      className={`w-full h-10 flex flex-row items-center group hover:sidebar-item-selected ${props.selected
+      className={`w-full h-10 flex flex-row items-center group hover:sidebar-item-selected pl-3 ${props.selected
         ? 'sidebar-item-selected' : null}`}>
       <div
         className={`h-10 p-2 flex flex-row items-center group hover:scale-110 transition-all hover:pl-[17.5px] ${props.selected
@@ -28,7 +28,7 @@ function SidebarItem (props) {
         <p
           className={`text-sm text-left ml-2 ${props.selected
             ? 'font-semibold text-amber-300'
-            : null} text-text-light group-hover:text-amber-300 group-hover:font-semibold `}>
+            : null} text-text-light group-hover:text-amber-300 font-extralight group-hover:font-semibold `}>
           {props.text}
         </p>
       </div>
