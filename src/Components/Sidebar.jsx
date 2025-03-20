@@ -47,7 +47,7 @@ function Sidebar (props) {
   let [selected, setSelected] = useState('Settings')
 
   return (
-    <div className={'flex flex-row w-full h-full'}>
+    <div className={'flex flex-row w-full h-full z-10 absolute pointer-events-none'}>
       <HorizontalSidebar items={items} selected={selected}/>
       <VerticalSidebar items={items} selected={selected}/>
     </div>
