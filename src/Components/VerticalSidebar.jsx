@@ -7,7 +7,7 @@ function VerticalSidebar (props) {
 
   return (
     <div
-      className={'sm:hidden transition-all duration-250 ease-in-out relative w-full flex flex-col-reverse items-center justify-end'}
+      className={'sm:hidden transition-all duration-250 ease-in-out relative w-full flex flex-col-reverse items-center justify-end pointer-events-auto'}
       style={{
         top: open ? '0' : '-90cqh',
         height: '100cqh',
