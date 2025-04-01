@@ -1,12 +1,13 @@
-import React from 'react'
+import React     from 'react'
+import PropTypes from 'prop-types'
 
 function ContentTile (props) {
   return (
     <div onClick={props.onClick}
-         className={'group w-full sm:w-1/3 h-fit overflow-clip p-0.5 hover:scale-95 transition duration-200 ease-out not-hover:drop-shadow-2xl grid grid-cols-1 grid-rows-1'}>
+         className={'group w-full sm:max-w-1/3 h-fit overflow-clip p-0.5 hover:scale-95 transition duration-200 ease-out not-hover:drop-shadow-2xl grid grid-cols-1 grid-rows-1'}>
       <div
         className={'pointer-events-none col-start-1 col-end-2 row-start-1 row-end-2 border-2 border-oxford-blue grid grid-rows-5 grid-cols-4 aspect-2/1 rounded-lg overflow-clip justify-stretch items-center'}>
-        <img className={'w-full row-start-1 row-end-5 col-start-1 col-end-6 object-cover'} src={props.src}
+        <img className={'w-full h-full row-span-full col-span-full object-cover'} src={props.src}
              alt={props.alt}/>
         <div
           className={'group-hover:opacity-0 transition-all duration-200 ease-in-out h-full w-full col-span-full row-span-full flex flex-col overflow-clip justify-center items-center'}>
@@ -33,6 +34,21 @@ function ContentTile (props) {
       </div>
     </div>
   )
+}
+
+ContentTile.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  alt: PropTypes.string,
+  src: PropTypes.string,
+  onClick: PropTypes.func,
+}
+
+ContentTile.defaultProps = {
+  title: 'Title',
+  subtitle: 'Subtitle',
+  alt: 'Placeholder Image',
+  src: '/placeholder.jpg',
 }
 
 export default ContentTile
