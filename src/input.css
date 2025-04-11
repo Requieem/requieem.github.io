@@ -16,7 +16,7 @@ body, root, :root, #root, html {
     transition: all 500ms ease-in-out;
 }
 
-text, span {
+text, span:not(:where(code span, code * span)) {
     @apply dark:text-text-light text-text-dark;
 }
 
