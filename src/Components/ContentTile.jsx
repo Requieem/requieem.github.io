@@ -23,11 +23,11 @@ function ContentTile (props) {
         <div
           className={'z-0 h-full w-full col-span-full row-span-full flex flex-col overflow-clip justify-center items-center gap-1 opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out bg-text-dark/55 backdrop-blur-md'}>
           <div
-            className={'flex-1 flex items-center justify-end rounded-md p-1 pr-5 pl-5 w-fit items-end'}>
+            className={'flex-1 flex justify-end rounded-md p-1 pr-5 pl-5 w-fit items-end'}>
             <h3 className={'text-center text-text-light font-semibold'}>{props.title}</h3>
           </div>
           <div
-            className={'flex-1 flex items-center justify-center rounded-md p-1 pr-5 pl-5 w-fit items-start'}>
+            className={'flex-1 flex justify-center rounded-md p-1 pr-5 pl-5 w-fit items-start'}>
             <h3 className={'text-center text-text-light italic font-light'}>Read More</h3>
           </div>
         </div>
@@ -42,13 +42,6 @@ ContentTile.propTypes = {
   alt: PropTypes.string,
   src: PropTypes.string,
   onClick: PropTypes.func,
-}
-
-ContentTile.defaultProps = {
-  title: 'Title',
-  subtitle: 'Subtitle',
-  alt: 'Placeholder Image',
-  src: '/placeholder.jpg',
 }
 
 export default ContentTile

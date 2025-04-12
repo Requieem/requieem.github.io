@@ -1,6 +1,5 @@
 import React       from 'react'
 import ContentTile from './ContentTile.jsx'
-import PropTypes   from 'prop-types'
 
 function ContentGrid (props) {
   return (
@@ -17,14 +16,6 @@ function ContentGrid (props) {
       ))}
     </div>
   )
-}
-
-ContentGrid.defaultProps = {
-  content: [],
-}
-
-ContentGrid.propTypes = {
-  content: PropTypes.arrayOf(ContentTile.propTypes),
 }
 
 export default ContentGrid

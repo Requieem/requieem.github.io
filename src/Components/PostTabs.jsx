@@ -1,6 +1,6 @@
 // Refactored PostTabs with responsive layout and polished transitions
-import React, { useEffect, useRef, useState } from 'react'
-import PropTypes                              from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import PropTypes                      from 'prop-types'
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -8,10 +8,10 @@ import {
   FaClipboardCheck,
   FaExpand,
   FaFileImage,
-}                                             from 'react-icons/fa'
-import { FaCircleXmark, FaX }                 from 'react-icons/fa6'
-import { atomOneDark, CodeBlock }             from 'react-code-blocks'
-import PageModel                              from '../Models/PageModel.js'
+}                                     from 'react-icons/fa'
+import { FaCircleXmark, FaX }         from 'react-icons/fa6'
+import { atomOneDark, CodeBlock }     from 'react-code-blocks'
+import PageModel                      from '../Models/PageModel.js'
 
 function TabsNavigation (props) {
   return <div className="relative flex justify-center items-center gap-5">
@@ -186,7 +186,7 @@ function PostTabs ({ model }) {
           </div>
         </div>
       </div>
-      <div className={'hidden sm:block'}>
+      <div className={'hidden sm:block mt-2'}>
         {/* Navigation */}
         <TabsNavigation onClick={prev} length={model.maxIndex} callbackfn={(_, i) => (
           <button

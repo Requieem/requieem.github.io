@@ -10,6 +10,7 @@ body, root, :root, #root, html {
 
 * {
     cursor: grab !important;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .theme-transition {
@@ -21,7 +22,7 @@ text, span:not(:where(code span, code * span)) {
 }
 
 .oufofsight {
-    @apply absolute relative left-full;
+    @apply absolute left-full;
     transition: all 0.25s ease;
 }
 
