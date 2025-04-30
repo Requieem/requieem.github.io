@@ -4,7 +4,7 @@ import React from 'react'
  * @param {Object} props
  * @param {boolean} props.isOpen - Whether the modal is visible
  * @param {Function} props.onClose - Callback to close the modal
- * @param {JSXElement} props.markdown - Markdown string to render
+ * @param {Element} props.markdown - Markdown string to render
  */
 export default function BlogPost ({ isOpen, onClose, markdown }) {
   if (!isOpen) return null
