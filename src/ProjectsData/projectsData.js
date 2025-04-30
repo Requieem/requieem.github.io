@@ -1,7 +1,7 @@
-import resCavernasData from "./ResCavernas.js";
-import stormFoundersData from "./StormFounders.js";
+import resCavernasData   from './ResCavernas.jsx'
+import stormFoundersData from './StormFounders.jsx'
 
 export const projectsData = [
-    resCavernasData,
-    stormFoundersData
-];
+  resCavernasData,
+  stormFoundersData,
+]

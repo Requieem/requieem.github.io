@@ -1,10 +1,13 @@
-import PageModel from "../Models/PageModel.js";
+import PageModel      from '../Models/PageModel.js'
+import { FaMountain } from 'react-icons/fa6'
+import { FaCog }      from 'react-icons/fa'
+import React          from 'react'
 
 const resCavernasData =
-    new PageModel(
-        "Res Cavernas",
+  new PageModel(
+    'Res Cavernas',
 
-        `In Res Cavernas, players travel through infinite procedurally 
+    `In Res Cavernas, players travel through infinite procedurally 
         generated caves to defeat hordes of enemies and gather treasures. To do this, 
         they are equipped with spells generated based on their requests through a unique 
         GPT generation pipeline. The project aims to showcase an efficient and streamlined 
@@ -16,19 +19,21 @@ const resCavernasData =
         As players move through the generated chambers they will also face hordes of enemies
         equipped with A* based path-finding and various abilities. Finally, a hub 
         provides a haven where players can talk with relevant NPCs, generate new spells and stash their treasures.`,
-        [
-            "/ResCavernas/title_page.png",
-            "/ResCavernas/meshunoptimized.png",
-            "/ResCavernas/meshoptimized.png",
-            "/ResCavernas/gpt_actor.png",
-            "/ResCavernas/cave_gameplay.png"
-        ],
-        [
-            null,
-            {
-                language: "csharp",
-                text:
-`public class CaveGenerator()
+    '/ResCavernas/gpt_actor.png',
+    <FaMountain className={'fill-text-light h-5 w-5'}/>,
+    [
+      '/ResCavernas/title_screen.png',
+      '/ResCavernas/meshunoptimized.png',
+      '/ResCavernas/meshoptimized.png',
+      '/ResCavernas/gpt_actor.png',
+      '/ResCavernas/cave_gameplay.png',
+    ],
+    [
+      null,
+      {
+        language: 'csharp',
+        text:
+          `public class CaveGenerator()
 {
     private void GenerateCave()
     {
@@ -62,11 +67,11 @@ public class CaveManager : MonoBehaviour
         m_activeChunks.Add(chunk);
     }
 }`,
-            },
-            {
-                language: "hlsl",
-                text:
-`#pragma kernel GenerateSimplex
+      },
+      {
+        language: 'hlsl',
+        text:
+          `#pragma kernel GenerateSimplex
 #include "./SimplexNoise.compute"
 
 RWStructuredBuffer<float4> elements;
@@ -117,12 +122,12 @@ void GenerateSimplex (int3 id : SV_DispatchThreadID)
     
     // Store the noise value in the buffer
     elements[thread_index(id.x, id.y, id.z)] = float4(pos, noise_value);
-}`
-            },
-            {
-                language: "csharp",
-                text:
-`public class GPTActor : SerializedMonoBehaviour
+}`,
+      },
+      {
+        language: 'csharp',
+        text:
+          `public class GPTActor : SerializedMonoBehaviour
     public async Task<string> SendReply(string userPrompt, Action<string> callback)
     {
         var newMessage = new ChatMessage()
@@ -240,12 +245,12 @@ public async Task<GridAction> GenerateAction(string userPrompt)
     }
 
     return null;
-}`
-            },
-            {
-                language: "csharp",
-                text:
-`public class PlayerDweller : MonoBehaviour, IDweller
+}`,
+      },
+      {
+        language: 'csharp',
+        text:
+          `public class PlayerDweller : MonoBehaviour, IDweller
 {
     [SerializeField] private DwellerController m_controller;
 
@@ -357,11 +362,11 @@ public static Path FindAStarPath(this Vector3 start, Vector3Int end, HashSet<Vec
     
     return new Path(startInt, end, Array.Empty<Vector3Int>(), Array.Empty<Vector3Int>());
 }
-`
-            }
-        ],
-        [
-            `The gameplay allows the player to move through a 3D grid, each move 
+`,
+      },
+    ],
+    [
+      `The gameplay allows the player to move through a 3D grid, each move 
             triggering a ”tick” in other entities; these entities usually respond 
             to this tick by moving or executing an action. The objective was to 
             create a strategic experience, encouraging players to plan ahead of 
@@ -372,7 +377,7 @@ public static Path FindAStarPath(this Vector3 start, Vector3Int end, HashSet<Vec
             brings the player back to the hub, where they can reconcile with NPCs 
             and stash their treasures, adding a rogue-like flavour to the gameplay loop.`,
 
-            `Procedural generation techniques are leveraged to generate the caves 
+      `Procedural generation techniques are leveraged to generate the caves 
             where the game takes place. Thanks to the extensive use of Compute Shaders, 
             cave generation happens efficiently at runtime, allowing for a seamless 
             exploration of the generated world. Additionally, the generated world 
@@ -390,7 +395,7 @@ public static Path FindAStarPath(this Vector3 start, Vector3Int end, HashSet<Vec
             effective for managing the generation tasks that, when batched, could 
             potentially compromise the application’s main loop execution time.`,
 
-            `As the game progresses, the environment might be affected by various changes. 
+      `As the game progresses, the environment might be affected by various changes. 
             The CaveManager also dispatches these change signals to the correct chunks 
             that trigger a regeneration of the cave and grid. Luckily, the generation 
             is efficient enough that this process is unnoticeable even for players 
@@ -420,7 +425,7 @@ public static Path FindAStarPath(this Vector3 start, Vector3Int end, HashSet<Vec
             generated and thus not rendered, cutting down vertex count considerably as shown
             (from 15886 to 6106 triangles in this specific case).`,
 
-            `One of the uses of the GPT-LLM is aimed at creating dynamic NPCs that take on different roles and personalities.
+      `One of the uses of the GPT-LLM is aimed at creating dynamic NPCs that take on different roles and personalities.
             Using gpt-4o-mini, this was achieved thanks to a purposefully engineered prompt that instructs the model to
             respond following a certain definition of the NPCs players can interact with. 
             To prompt GPT some simple web-requests are used, provided by a popular OpenAI-Unity library 
@@ -446,7 +451,7 @@ public static Path FindAStarPath(this Vector3 start, Vector3Int end, HashSet<Vec
             this initialization could be optimized and execute once for all actors; this however would be almost unnoticeable
             in terms of performance for this low-volume use-case so the code is left simpler to avoid unnecessary cluttering.`,
 
-            `On of the core gameplay features sees entities in the game respond to player movement and actions. The Observer
+      `On of the core gameplay features sees entities in the game respond to player movement and actions. The Observer
             Pattern was the natural tool of choice. In this implementation of the pattern, an IDweller interface provides
             a static entry-point to the hooks used to achieve the desired interactions. Both the player and the enemies use a 
             DwellerController script to move on the grid; the PlayerDweller wrapper processes user input to trigger character movement, 
@@ -463,7 +468,8 @@ public static Path FindAStarPath(this Vector3 start, Vector3Int end, HashSet<Vec
             is returned on a null solution. The algorithm works similarly to most A* implementations; a queue structure is
             used to execute a graph search through the grid. Eventually, and if the target is reached, the queue will contain
             a set of positions that we can backtrack on to compose a valid path. For this simple use-case, the built-in vector
-            distance function was used as the cost heuristic.`
-        ]
-    );
-export default resCavernasData;
+            distance function was used as the cost heuristic.`,
+    ],
+    ['PCG', 'GPT', 'AI'],
+  )
+export default resCavernasData

@@ -1,22 +1,25 @@
-import PageModel from "../Models/PageModel.js";
+import PageModel           from '../Models/PageModel.js'
+import { FaBoltLightning } from 'react-icons/fa6'
 
 const stormFoundersData =
-    new PageModel(
-        "Storm Founders",
+  new PageModel(
+    'Storm Founders',
 
-`Welcome to Storm Founders, an island where the lush landscapes and serene beauty hide a dangerous secret: relentless storms! As the pioneer of a new village, your task is not only to expand and thrive but also to protect your creation from the fury of nature itself.
+    `Welcome to Storm Founders, an island where the lush landscapes and serene beauty hide a dangerous secret: relentless storms! As the pioneer of a new village, your task is not only to expand and thrive but also to protect your creation from the fury of nature itself.
 The island may seem like a paradise, but beware of the frequent thunderstorms that bring an abundance of lightning strikes. Luckily, you have access to a revolutionary new device—the Lightning Rod. Place it strategically to safeguard your village from destruction, but don’t worry about running out of resources. The island is rich in Electrite, a rare material that allows you to build as many Lightning Rods as you need!
 Navigate your way across the island, gather resources, and manage your village’s growth—all while defending against the elements. Keep a close eye on consumable levels, and don’t let your resources run low. Storms may come, but with enough strategy and courage, your village can weather anything.`,
-        [
-            "/StormFounders/title_screen.png",
-            "/StormFounders/start_road.png",
-            "/StormFounders/game_crops.png",
-            "/StormFounders/game_night.png",
-        ],
-        [
-            {
-                language: "csharp",
-                text: `using System.Collections;
+    '/StormFounders/title_screen.png',
+    <FaBoltLightning className={'fill-text-light h-5 w-5'}/>,
+    [
+      '/StormFounders/title_screen.png',
+      '/StormFounders/start_road.png',
+      '/StormFounders/game_crops.png',
+      '/StormFounders/game_night.png',
+    ],
+    [
+      {
+        language: 'csharp',
+        text: `using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -274,12 +277,12 @@ public class Villager : SerializedMonoBehaviour
         return isFull;
     }
 
-}`
-            },
-            {
-                language: "csharp",
-                text:
-`using System.Collections.Generic;
+}`,
+      },
+      {
+        language: 'csharp',
+        text:
+          `using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -545,12 +548,12 @@ public class RoadPlacementSystem : MonoBehaviour, ILockingOperation
         return GridHelper.GetAStarPath(start, goal, (pos) => true, GridHelper.GetNeighbours).Select(p => new Vector3Int(p.x, p.y, 0)).ToArray();
     }
 }
-`
-            },
-            {
-                language: "csharp",
-                text:
-`using System.Collections.Generic;
+`,
+      },
+      {
+        language: 'csharp',
+        text:
+          `using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -659,12 +662,12 @@ public class Resource : SerializedScriptableObject
         }
         return has;
     }
-}`
-            },
-            {
-                language: "csharp",
-                text:
-`
+}`,
+      },
+      {
+        language: 'csharp',
+        text:
+          `
 [CreateAssetMenu(fileName = "Season", menuName = "ScriptableObjects/Season")]
 public class Season : ScriptableObject
 {
@@ -898,63 +901,66 @@ public class SeasonalLight : SerializedMonoBehaviour, ISeasonResponse, ITimeResp
     {
         AdjustLight();
     }
-}`
-            }
-        ],
-        ["The Villager class in this game is the backbone of its automation system, allowing settlements to function dynamically and autonomously. The villagers operate on a state-driven behavior system, where each state—such as Idle, Gathering, Depositing, or MovingToWorkplace—dictates their actions in response to game events. This system follows a structured approach where villagers interact with their environment through pathfinding, resource management, and task execution, all while adhering to a you-move-they-move mechanic that ensures strategic decision-making by the player.\n"
-         + "At its core, the villager automation relies on an AI-driven task"
-         + " management cycle. When assigned a workplace, a villager"
-         + " navigates the game world using grid-based pathfinding facilitated by the GridRouter component. Upon reaching their workplace, they begin a gathering phase, extracting resources over a set period (GatherTime). Once their inventory is full, they deposit their earnings to a storage facility, completing a cycle that keeps the village's economy running. If resources become scarce or needs are unmet, villagers can become dissatisfied and ultimately leave the town, which adds a layer of management challenges for the player. This automation seamlessly integrates with the game's procedural systems, ensuring villages remain responsive and adaptable to the changing world. Through a combination of compute-efficient coroutines, event-driven interactions, and smooth animations powered by DOTween, the Villager class transforms resource collection into a living, breathing system that enriches the game's strategic depth.",
+}`,
+      },
+    ],
+    [
+      'The Villager class in this game is the backbone of its automation system, allowing settlements to function dynamically and autonomously. The villagers operate on a state-driven behavior system, where each state—such as Idle, Gathering, Depositing, or MovingToWorkplace—dictates their actions in response to game events. This system follows a structured approach where villagers interact with their environment through pathfinding, resource management, and task execution, all while adhering to a you-move-they-move mechanic that ensures strategic decision-making by the player.\n'
+      + 'At its core, the villager automation relies on an AI-driven task'
+      + ' management cycle. When assigned a workplace, a villager'
+      + ' navigates the game world using grid-based pathfinding facilitated by the GridRouter component. Upon reaching their workplace, they begin a gathering phase, extracting resources over a set period (GatherTime). Once their inventory is full, they deposit their earnings to a storage facility, completing a cycle that keeps the village\'s economy running. If resources become scarce or needs are unmet, villagers can become dissatisfied and ultimately leave the town, which adds a layer of management challenges for the player. This automation seamlessly integrates with the game\'s procedural systems, ensuring villages remain responsive and adaptable to the changing world. Through a combination of compute-efficient coroutines, event-driven interactions, and smooth animations powered by DOTween, the Villager class transforms resource collection into a living, breathing system that enriches the game\'s strategic depth.',
 
-         "The RoadPlacementSystem is a crucial component of the game's infrastructure, enabling players to construct a navigable road network that directly influences the efficiency of villager movement. Roads serve as predefined optimal paths for villagers, ensuring they can traverse the environment efficiently while minimizing obstacles. By leveraging grid-based pathfinding, this system dynamically updates the road tilemap, allowing players to plan and expand their village's transportation network intuitively.\n"
-        + "I've designed this system around real-time road sketching and"
-        + " placement mechanics so players can sketch the roads before"
-        + " committing to the game world. Players initiate the process by"
-        + " entering sketching mode, where placeholder tiles help to"
-        + " visualize the intended road layout. The system also implements path validation, ensuring that roads align with a logical movement grid—villagers should only travel along valid routes. When a player decides to finalize a road, the terrain updates dynamically, removing obstructions like trees and placing reinforcement structures such as palisades on exposed edges. These roads define paths for villagers and integrate seamlessly with the AI's pathfinding system, ensuring that entities—like workers gathering resources or merchants moving between storage and workplaces—navigate the village efficiently. By optimizing routes through A-based path calculations*, the system guarantees that villager automation remains fluid, strategic, and reactive to player-driven changes in the environment.",
+      'The RoadPlacementSystem is a crucial component of the game\'s infrastructure, enabling players to construct a navigable road network that directly influences the efficiency of villager movement. Roads serve as predefined optimal paths for villagers, ensuring they can traverse the environment efficiently while minimizing obstacles. By leveraging grid-based pathfinding, this system dynamically updates the road tilemap, allowing players to plan and expand their village\'s transportation network intuitively.\n'
+      + 'I\'ve designed this system around real-time road sketching and'
+      + ' placement mechanics so players can sketch the roads before'
+      + ' committing to the game world. Players initiate the process by'
+      + ' entering sketching mode, where placeholder tiles help to'
+      + ' visualize the intended road layout. The system also implements path validation, ensuring that roads align with a logical movement grid—villagers should only travel along valid routes. When a player decides to finalize a road, the terrain updates dynamically, removing obstructions like trees and placing reinforcement structures such as palisades on exposed edges. These roads define paths for villagers and integrate seamlessly with the AI\'s pathfinding system, ensuring that entities—like workers gathering resources or merchants moving between storage and workplaces—navigate the village efficiently. By optimizing routes through A-based path calculations*, the system guarantees that villager automation remains fluid, strategic, and reactive to player-driven changes in the environment.',
 
-         "The resource system plays a pivotal role in the game's survival"
-         + " mechanics and is the foundation for villager productivity and"
-         + " the player's long-term strategy. Each resource operates in a"
-         + " dynamic economy, where its availability fluctuates based on"
-         + " seasonal modifiers, consumption rates, and passive income"
-         + " generation. Resources are not static; they are gained, spent,"
-         + " and even temporarily occupied depending on the current needs of"
-         + " the village. This creates an ever-changing balance where the"
-         + " player must carefully manage supplies to sustain growth and"
-         + " avoid shortages that could lead to villagers' dissatisfaction"
-         + " or even abandonment."
-         + "A key element of this system is its seasonal influence, as"
-         + " resources can be more or less abundant depending on the time of"
-         + " year. The Gain() function applies seasonal modifiers, meaning"
-         + " that stockpiling during times of plenty can be crucial for"
-         + " surviving harsher seasons. Rather than being consumed outright,"
-         + " some resources become \"busy,\" temporarily locked until"
-         + " released—representing ongoing work or reserved supplies that"
-         + " the player cannot access - nor the villagers - until ongoing"
-         + " villager tasks are completed. This layered economy forces the"
-         + " player to plan, adapt to environmental shifts, and ensure the"
-         + " village remains resilient against scarcity. By integrating"
-         + " real-time event-driven updates, the Resource system ensures"
-         + " that the game's survival mechanics remain engaging,"
-         + " challenging, and deeply intertwined with the evolving world.",
+      'The resource system plays a pivotal role in the game\'s survival'
+      + ' mechanics and is the foundation for villager productivity and'
+      + ' the player\'s long-term strategy. Each resource operates in a'
+      + ' dynamic economy, where its availability fluctuates based on'
+      + ' seasonal modifiers, consumption rates, and passive income'
+      + ' generation. Resources are not static; they are gained, spent,'
+      + ' and even temporarily occupied depending on the current needs of'
+      + ' the village. This creates an ever-changing balance where the'
+      + ' player must carefully manage supplies to sustain growth and'
+      + ' avoid shortages that could lead to villagers\' dissatisfaction'
+      + ' or even abandonment.'
+      + 'A key element of this system is its seasonal influence, as'
+      + ' resources can be more or less abundant depending on the time of'
+      + ' year. The Gain() function applies seasonal modifiers, meaning'
+      + ' that stockpiling during times of plenty can be crucial for'
+      + ' surviving harsher seasons. Rather than being consumed outright,'
+      + ' some resources become "busy," temporarily locked until'
+      + ' released—representing ongoing work or reserved supplies that'
+      + ' the player cannot access - nor the villagers - until ongoing'
+      + ' villager tasks are completed. This layered economy forces the'
+      + ' player to plan, adapt to environmental shifts, and ensure the'
+      + ' village remains resilient against scarcity. By integrating'
+      + ' real-time event-driven updates, the Resource system ensures'
+      + ' that the game\'s survival mechanics remain engaging,'
+      + ' challenging, and deeply intertwined with the evolving world.',
 
-        "The Season and Time System in Storm Founder introduces a dynamic environmental cycle, shaping the game world and influencing multiple gameplay mechanics. The SeasonManager class governs the passage of time, transitioning between distinct seasons after a set number of in-game days. As time progresses, seasons shift dynamically, triggering changes in resource availability, villager behavior, and environmental conditions. This system aims to provide another layer of strategic depth, requiring players to plan for harsher seasons, where specific resources may become scarce or external threats more aggressive.\n"
-        + "One of this system's most visually immersive implementations is"
-        + " Seasonal Lighting, handled by the SeasonalLight component. By"
-        + " leveraging DOTween animations, lighting conditions smoothly"
-        + " adapt to the current season and time of day, shifting between"
-        + " warm, vibrant hues during summer days and cold, dim glow in the"
-        + " depths of winter nights. The system interpolates between"
-        + " predefined day and night light intensities, dynamically"
-        + " adjusting color saturation and brightness as time progresses."
-        + " Similar features enhance the game's aesthetic appeal and serve a"
-        + " functional purpose—for example, during heavy storms, lighting"
-        + " can dim significantly, reducing visibility and creating a more"
-        + " challenging and immersive survival experience. Together, these"
-        + " mechanics create a richly simulated world where the passage of"
-        + " time is not just a visual element but a core gameplay driver"
-        + " that affects exploration, resource management, and the overall"
-        + " survival challenge."]
-    );
-export default stormFoundersData;
+      'The Season and Time System in Storm Founder introduces a dynamic environmental cycle, shaping the game world and influencing multiple gameplay mechanics. The SeasonManager class governs the passage of time, transitioning between distinct seasons after a set number of in-game days. As time progresses, seasons shift dynamically, triggering changes in resource availability, villager behavior, and environmental conditions. This system aims to provide another layer of strategic depth, requiring players to plan for harsher seasons, where specific resources may become scarce or external threats more aggressive.\n'
+      + 'One of this system\'s most visually immersive implementations is'
+      + ' Seasonal Lighting, handled by the SeasonalLight component. By'
+      + ' leveraging DOTween animations, lighting conditions smoothly'
+      + ' adapt to the current season and time of day, shifting between'
+      + ' warm, vibrant hues during summer days and cold, dim glow in the'
+      + ' depths of winter nights. The system interpolates between'
+      + ' predefined day and night light intensities, dynamically'
+      + ' adjusting color saturation and brightness as time progresses.'
+      + ' Similar features enhance the game\'s aesthetic appeal and serve a'
+      + ' functional purpose—for example, during heavy storms, lighting'
+      + ' can dim significantly, reducing visibility and creating a more'
+      + ' challenging and immersive survival experience. Together, these'
+      + ' mechanics create a richly simulated world where the passage of'
+      + ' time is not just a visual element but a core gameplay driver'
+      + ' that affects exploration, resource management, and the overall'
+      + ' survival challenge.',
+    ],
+    ['Jam', 'AI', 'City Builder'],
+  )
+export default stormFoundersData

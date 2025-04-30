@@ -2,45 +2,39 @@ import React, { useState }         from 'react'
 import HorizontalSidebar           from './HorizontalSidebar.jsx'
 import VerticalSidebar             from './VerticalSidebar.jsx'
 import { FaCog, FaHeart, FaLinux } from 'react-icons/fa'
+import { projectsData }            from '@/ProjectsData/projectsData.js'
+import { postsData }               from '@/PostsData/postsData.js'
+import PropTypes                   from 'prop-types'
 
 function Sidebar (props) {
   let items = [
     {
-      title: 'Projects', items: [
+      title: 'Projects',
+      items: projectsData.map((project) => (
         {
-          icon: <FaCog className={'fill-text-light h-5 w-5'}/>,
-          text: 'Settings',
-          action: () => console.log('Settings'),
-        },
-        {
-          icon: <FaHeart className={'fill-text-light  h-5 w-5'}/>,
-          text: 'Favorites',
-          action: () => console.log('Favorites'),
-        },
-        {
-          icon: <FaLinux className={'fill-text-light  h-5 w-5'}/>,
-          text: 'Linux',
-          action: () => console.log('Linux'),
-        },
-      ],
+          icon: project.icon,
+          text: project.title,
+          action: () => {
+            props.portfolioCallback()
+            // Wait for the portfolio to load
+            setTimeout(() => {
+              // Scroll to the project
+              document.getElementById(project.title).scrollIntoView({ behavior: 'smooth' })
+            }, 500)
+          },
+        }
+      )),
     }, {
-      title: 'Posts', items: [
-        {
-          icon: <FaCog className={'fill-text-light  h-5 w-5'}/>,
-          text: 'Post 1',
-          action: () => console.log('Settings'),
-        },
-        {
-          icon: <FaHeart className={'fill-text-light  h-5 w-5'}/>,
-          text: 'Post 2',
-          action: () => console.log('Favorites'),
-        },
-        {
-          icon: <FaLinux className={'fill-text-light  h-5 w-5'}/>,
-          text: 'Post 3',
-          action: () => console.log('Linux'),
-        },
-      ],
+      title: 'Posts', items:
+        postsData.map((post) => (
+          {
+            icon: post.icon,
+            text: post.title,
+            action: () => {
+              props.blogCallback()
+            },
+          }
+        )),
     },
   ]
 
@@ -52,6 +46,11 @@ function Sidebar (props) {
       <VerticalSidebar items={items} selected={selected}/>
     </div>
   )
+}
+
+Sidebar.propTypes = {
+  projectCallback: PropTypes.func,
+  blogCallback: PropTypes.func,
 }
 
 export default Sidebar
