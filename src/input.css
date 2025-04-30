@@ -26,7 +26,7 @@ ol {
 }
 
 .post-subtitle {
-    @apply text-lg font-semibold leading-tight mb-5;
+    @apply text-lg font-semibold leading-tight my-5;
 }
 
 .post-code {
