@@ -1,17 +1,16 @@
 import './input.css'
-import CursorFollow                from './Components/CursorFollow.jsx'
-import { useRef, useState }        from 'react'
-import { projectsData }            from './ProjectsData/projectsData.js'
-import Sidebar                     from './Components/Sidebar.jsx'
-import { FaArrowUp, FaBlog }       from 'react-icons/fa6'
-import ContentGrid                 from './Components/ContentGrid.jsx'
-import ImagePage                   from './Components/ImagePage.jsx'
-import PostTabs                    from './Components/PostTabs.jsx'
-import ContactButtons              from './Components/ContactButtons.jsx'
-import * as PropTypes              from 'prop-types'
-import { postsData }               from '@/PostsData/postsData.js'
-import { AnimatePresence, motion } from 'framer-motion'
-import BlogPost                    from '@/Components/BlogPost.jsx'
+import CursorFollow                    from './Components/CursorFollow.jsx'
+import { useEffect, useRef, useState } from 'react'
+import { projectsData }                from './ProjectsData/projectsData.js'
+import Sidebar                         from './Components/Sidebar.jsx'
+import { FaArrowUp, FaBlog }           from 'react-icons/fa6'
+import ContentGrid                     from './Components/ContentGrid.jsx'
+import ImagePage                       from './Components/ImagePage.jsx'
+import PostTabs                        from './Components/PostTabs.jsx'
+import ContactButtons                  from './Components/ContactButtons.jsx'
+import { postsData }                   from '@/PostsData/postsData.js'
+import { AnimatePresence, motion }     from 'framer-motion'
+import BlogPost                        from '@/Components/BlogPost.jsx'
 
 function ProjectPage (props) {
   console.log(props.project.title.replace(' ', '') + '/title_screen.png')
@@ -68,6 +67,16 @@ function Blog (props) {
 
   return <>
     <div className={'bg-white/35 rounded-md m-5 pb-5'}>
+      <div className={'px-7.5 pt-5 text-justify'}>
+        <div className={'mb-2.5 lg:mb-0 lg:mr-2.5 flex-col'}>
+          <h4 className={'mb-2.5 font-bold text-left'}>My Role in <em>Profit Pits</em></h4>
+          <span>I served as the <strong>generalist programmer and systems architect</strong> for <em>Profit Pits</em>, a multiplayer mining game developed by a small team as part of our postgraduate collaboration. My primary responsibility was the design and implementation of the game's core systems — from interactable logic and task activities to custom editor tooling and backend integration. I built a data-driven architecture using Unity 6 and Photon Fusion 2, leveraging ScriptableObjects and identifiers to enable modular gameplay interactions such as mining, equipping tools, and collaborating on shared objectives. These systems were structured to allow designers and developers to iterate quickly, while ensuring synchronization and stability across clients.</span>
+        </div>
+        <div className={'mt-2.5 lg:mt-0 lg:ml-2.5 xl:ml-0 xl:mt-5 flex-col'}>
+          <h4 className={'mb-2.5 font-bold text-left'}>Engineering the Experience</h4>
+          <span>Beyond gameplay code, I engineered much of the infrastructure powering the game’s user experience: Firebase authentication, Hathora-powered lobby orchestration, dynamic form rendering, and a modular main menu system. I integrated and expanded the Hathora Fusion sample menus into a polished and extensible UI flow, supporting party code input, lobby browsing, and player customization. My contributions emphasized clarity, extensibility, and team collaboration — with tooling and runtime systems designed to empower other developers and support expressive, technically challenging gameplay scenarios.</span>
+        </div>
+      </div>
       <div className={'text-center w-full text-md mt-0 flex-row flex justify-between items-end p-5'}>
         <h3 className={'pl-2.5 font-bold'}>Blog Posts</h3>
       </div>
@@ -93,6 +102,13 @@ function Blog (props) {
 function App () {
   let containerRef = useRef(null)
   let [content, setContent] = useState('portfolio')
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '')
+    if (hash === 'blog' || hash === 'portfolio') {
+      setContent(hash)
+    }
+  }, [])
 
   return (
     <>
@@ -141,7 +157,7 @@ function App () {
             <div className={'mt-2.5 lg:mt-0 lg:ml-2.5 xl:ml-0 xl:mt-5 flex-col'}>
               <h4 className={'mb-2.5 font-bold text-left'}>My work combines rigorous programming with cross-domain
                 fluency.</h4>
-              <span>I am highly proficient in Unity and C#, and I also have experience with Unreal, C++, Python, SwiftUI, Firebase, and Flutter. I have independently shipped both mobile apps and game prototypes, as well as collaborated with teams.
+              <span>I am highly proficient in Unity and C#, and I also have experience with Unreal, C++, Python, SwiftUI, Firebase, and Flutter. As a freelance full-stack developer, I've helped my clients ship both mobile apps and games, as well as collaborated with teams of various sizes and with various strengths and weaknesses.
 
 Whether it involves compute-driven cave generation, AI pathfinding, or network-aware toolsets, I approach every system with structure, clarity, and a commitment to maintainability. I thrive in collaborative environments and always aim to contribute solutions that elevate both the project and the team. This portfolio showcases the dynamic, expressive, and technically challenging systems that I enjoy building.</span>
             </div>
